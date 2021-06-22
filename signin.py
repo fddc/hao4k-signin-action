@@ -59,10 +59,12 @@ if __name__ == "__main__":
   signin_log = run(form_data)
   if signin_log is None:
     send_content = "hao4k 每日签到成功！"
+    send_title = "hao4k 每日签到成功！"
     print('Sign in automatically!')
   else:
+    send_title = "hao4k 每日签到失败！"
     send_content = signin_log
     print(signin_log)
-  params = {'text': 'hao4k 每日签到结果通知：', 'desp': send_content}
+  params = {'text': send_title, 'desp': send_content}
   requests.post(send_url, params=params)
   print('已通知 server 酱')
